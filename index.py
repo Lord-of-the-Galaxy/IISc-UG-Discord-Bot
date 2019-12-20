@@ -25,7 +25,7 @@ if not setup_db(log):
 db = sqlite3.connect(DB_PATH)
 log.debug("Connected to database.")
 
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix=COMMAND_PREFIX)
 log.debug("Bot created.")
 
 
