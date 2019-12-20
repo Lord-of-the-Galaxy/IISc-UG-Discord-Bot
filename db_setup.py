@@ -22,7 +22,7 @@ def setup_db(log):
     log.debug("Names file exists. Opening new database.")
     # PS Errors/Exceptions aren't handled. I know. I'm not gonna do it.
     # Any error should crash the bot, which should cause it to restart (except in dev env)
-    db = sqlite3.Connection(db_file)
+    db = sqlite3.connect(db_file)
     c = db.cursor()
 
     c.execute(

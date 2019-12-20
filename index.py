@@ -22,7 +22,7 @@ if not setup_db(log):
     log.error("Unable to setup the database.")
     sys.exit(1)
 
-db = sqlite3.Connection(DB_PATH)
+db = sqlite3.connect(DB_PATH)
 log.debug("Connected to database.")
 
 bot = commands.Bot(command_prefix='!')
