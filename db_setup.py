@@ -46,6 +46,10 @@ def setup_db(log):
         found_count += 1
     log.debug("Found {} names.".format(found_count))
 
+    c.close()
+    db.commit()
+    log.debug("All changes committed.")
+
     if count != found_count:
         log.warn(
             "Looks like some names have not gotten added. Perhaps duplicates? This should be investigated.")
