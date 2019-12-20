@@ -27,6 +27,9 @@ def setup_db(log):
 
     c.execute(
         '''CREATE TABLE IF NOT EXISTS names (name text PRIMARY KEY ON CONFLICT FAIL);''')
+    c.execute(("CREATE TABLE members("
+       "id INTEGER PRIMARY KEY,"
+       "name TEXT REFERENCES names(name) ON DELETE CASCADE ON UPDATE CASCADE);"))
     log.debug("Created database. Adding names.")
 
     count = 0
