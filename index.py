@@ -26,7 +26,7 @@ db = sqlite3.connect(DB_PATH)
 log.debug("Connected to database.")
 
 bot = commands.Bot(command_prefix=COMMAND_PREFIX)
-log.debug("Bot created.")
+log.info("Bot created with prefix {}.".format(COMMAND_PREFIX))
 
 
 def get_users(db, name, *, is_full_name=False):
