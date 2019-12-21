@@ -216,6 +216,12 @@ async def unmute(ctx, user: discord.Member):
     await user.remove_roles(ctx.guild.get_role(muted_id))
     await ctx.send("{} unmuted successfully!".format(user.mention))
 
+@bot.command()
+async def kawaii(ctx, user: discord.Member):
+    """ calls user kawaii """
+    # WANT to call the guy who called the function kawaii if user is empty, pls do something
+    await ctx.send("{} is so kawaii".format(user.mention))
+
 
 @bot.event
 async def on_member_join(member):
