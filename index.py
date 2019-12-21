@@ -218,10 +218,10 @@ async def unmute(ctx, user: discord.Member):
     await ctx.send("{} unmuted successfully!".format(user.mention))
 
 @bot.command()
-async def kawaii(ctx, user: typing.Optional[discord.Member] = 'lmao'):
+async def kawaii(ctx, user: typing.Optional[discord.Member] = None):
     """ calls user kawaii """
     # WANT to call the guy who called the function kawaii if user is empty, pls do something
-    if user == "lmao":
+    if user == None:
         await ctx.send("{} is so kawaii".format(ctx.author.mention))
     else:
         await ctx.send("{} is so kawaii".format(user.mention))
