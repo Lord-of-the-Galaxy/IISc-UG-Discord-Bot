@@ -146,7 +146,7 @@ async def shutdown(ctx):
 
 
 @bot.command()
-# @has_role(mod_role_id)
+@has_role(mod_role_id)
 async def hello(ctx):
     """[Mods only] Replies with hello. For testing purposes."""
     log.debug("Saying hello to {}".format(ctx.author.name))
