@@ -7,6 +7,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_role
 import discord.ext.commands.errors as discord_errors
+import typing
 
 from simple_logging import Logger
 from db_setup import setup_db
@@ -145,7 +146,7 @@ async def shutdown(ctx):
 
 
 @bot.command()
-@has_role(mod_role_id)
+# @has_role(mod_role_id)
 async def hello(ctx):
     """[Mods only] Replies with hello. For testing purposes."""
     log.debug("Saying hello to {}".format(ctx.author.name))
@@ -217,10 +218,13 @@ async def unmute(ctx, user: discord.Member):
     await ctx.send("{} unmuted successfully!".format(user.mention))
 
 @bot.command()
-async def kawaii(ctx, user: discord.Member):
+async def kawaii(ctx, user: typing.Optional[discord.Member] = 'lmao'):
     """ calls user kawaii """
     # WANT to call the guy who called the function kawaii if user is empty, pls do something
-    await ctx.send("{} is so kawaii".format(user.mention))
+    if user == "lmao":
+        await ctx.send("{} is so kawaii".format(ctx.author.mention))
+    else:
+        await ctx.send("{} is so kawaii".format(user.mention))
 
 
 @bot.event
