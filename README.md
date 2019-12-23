@@ -30,4 +30,11 @@ Just run the `help` command (as moderator, in the welcome channel) once the bot 
 
 ## Bugs etc
 Feel free to [file an issue](https://github.com/Lord-of-the-Galaxy/IISc-UG-Discord-Bot/issues/new), or better yet, open a pull request if you manage to fix the bugs.
-If you need some help with this/have some feedback, you can file an issue anyways, and I'll look into it. Preferably tag the issue appropriately.
+If you need some help with this/have some feedback, you can file an issue anyways, and I'll look into it. Preferably tag the issue appropriately. 
+
+## Contributors
+[Lord of Galaxy](https://github.com/Lord-of-the-Galaxy) 
+[CatGlasses77](https://github.com/CatGlasses77) 
+ 
+If you have contributed to the project, please ask me to add your name and link (to github profile) here if I haven't already. 
+Contact me if you'd like to change the name shown here to something else.
