@@ -7,6 +7,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import has_role
 import discord.ext.commands.errors as discord_errors
+import typing
 
 from simple_logging import Logger
 from db_setup import setup_db
@@ -215,6 +216,15 @@ async def unmute(ctx, user: discord.Member):
     log.debug("Unmute requested by {} for {}.".format(ctx.author, user))
     await user.remove_roles(ctx.guild.get_role(muted_id))
     await ctx.send("{} unmuted successfully!".format(user.mention))
+
+@bot.command()
+async def kawaii(ctx, user: typing.Optional[discord.Member] = None):
+    """ calls user kawaii """
+    # WANT to call the guy who called the function kawaii if user is empty, pls do something
+    if user == None:
+        await ctx.send("{} is so kawaii".format(ctx.author.mention))
+    else:
+        await ctx.send("{} is so kawaii".format(user.mention))
 
 
 @bot.event
