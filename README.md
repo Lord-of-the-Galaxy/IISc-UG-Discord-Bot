@@ -4,7 +4,7 @@ A (discord.py) bot for the IISc UG Discord Server
 This code is probably of no use to anyone else, but feel free to use it if you have a similar use case. 
  
 All it does are provide you with a basic registration system based on an existing list of names of everyone that should be permitted to join the list. (along with the ability to register others with a different role), and possibly some basic moderation commands. WIP.
-If you make any improvements, I'd love it if you'd make a pull request.
+If you make any improvements, I'd love it if you'd make a pull request. Please read the [code of conduct](https://github.com/Lord-of-the-Galaxy/IISc-UG-Discord-Bot/blob/master/CODE_OF_CONDUCT.md) before making any contributions.
 
 ## How to run
 You'll need Python 3 (it's been tested only with 3.7 though), along with all the libraries listed in `requirements.txt`.
@@ -30,4 +30,11 @@ Just run the `help` command (as moderator, in the welcome channel) once the bot 
 
 ## Bugs etc
 Feel free to [file an issue](https://github.com/Lord-of-the-Galaxy/IISc-UG-Discord-Bot/issues/new), or better yet, open a pull request if you manage to fix the bugs.
-If you need some help with this/have some feedback, you can file an issue anyways, and I'll look into it. Preferably tag the issue appropriately.
+If you need some help with this/have some feedback, you can file an issue anyways, and I'll look into it. Preferably tag the issue appropriately. 
+
+## Contributors
+[Lord of Galaxy](https://github.com/Lord-of-the-Galaxy)  
+[CatGlasses77](https://github.com/CatGlasses77)  
+  
+If you have contributed to the project, please ask me to add your name and link (to github profile) here if I haven't already. 
+Contact me if you'd like to change the name shown here to something else.

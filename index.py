@@ -232,8 +232,8 @@ async def on_member_join(member):
     log.debug("New member?", member)
     if member.guild.id == guild_id:
         log.info("New member joined: {}".format(member))
-        await member.guild.get_channel(welcome_id).send(("Welcome, {}! Please register using `!reg <your name>` to access the full server.\n"
-                                                         "If you are a seior, please as a Moderator to register you."))
+        await member.guild.get_channel(welcome_id).send((f"Welcome, {member.mention}! Please register using `!reg <your name>` to access the full server.\n"
+                                                         "If you are a seior, please ask a Moderator to register you."))
 
 @bot.event
 async def on_command_error(ctx, error):
