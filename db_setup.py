@@ -1,12 +1,14 @@
+import os
 from pathlib import Path
-import sqlite3
+
+import psycopg2
 
 from simple_logging import Logger
 from config import *
 
 
 def setup_db(log):
-    db_file = Path(DB_PATH).resolve()
+    db_url = os.environ['DATABASE_URL']
     names_file = Path(NAMES_PATH).resolve()
 
     if db_file.is_file():
@@ -22,7 +24,7 @@ def setup_db(log):
     log.debug("Names file exists. Opening new database.")
     # PS Errors/Exceptions aren't handled. I know. I'm not gonna do it.
     # Any error should crash the bot, which should cause it to restart (except in dev env)
-    db = sqlite3.connect(db_file)
+    db = psycopg2.connect(db_file)
     c = db.cursor()
 
     c.execute(
@@ -46,8 +48,8 @@ def setup_db(log):
         found_count += 1
     log.debug("Found {} names.".format(found_count))
 
-    c.close()
     db.commit()
+    c.close()
     log.debug("All changes committed.")
 
     if count != found_count:

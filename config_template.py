@@ -8,8 +8,6 @@ welcome_id = 444444444444444444
 guild_id = 555555555555555555
 
 COMMAND_PREFIX = '!'
-token = "<your bot token>"
 
-DB_PATH = "./data/bot.db"
 NAMES_PATH = "./data/names.txt"
 LOG_FOLDER = "./logs"

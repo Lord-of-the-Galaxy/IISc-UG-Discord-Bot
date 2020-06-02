@@ -1,8 +1,8 @@
 from pathlib import Path
-import sqlite3
-import sys
+import sys, os
 import traceback
 
+import psycopg2
 import discord
 from discord.ext import commands
 from discord.ext.commands import has_role
@@ -23,8 +23,12 @@ if not setup_db(log):
     log.error("Unable to setup the database.")
     sys.exit(1)
 
-db = sqlite3.connect(DB_PATH)
+DB_URL = os.environ['DATABASE_URL']
+db = psycopg2.connect(DB_URL)
 log.debug("Connected to database.")
+
+TOKEN = os.environ['DISCORD_TOKEN']
+log.info("Token:", TOKEN)
 
 bot = commands.Bot(command_prefix=COMMAND_PREFIX)
 log.info("Bot created with prefix {}.".format(COMMAND_PREFIX))
@@ -69,8 +73,8 @@ def register_new(db, name, id):
     c = db.cursor()
     log.debug("Registering: {} as {}".format(id, name))
     c.execute("INSERT INTO members VALUES(?, ?);", [id, name])
-    c.close()
     db.commit()
+    c.close()
     return True
 
 
@@ -113,7 +117,7 @@ async def register_actual(ctx, user, *, name, is_full_name=False):
             ok_names_list += "\n{}. {}".format(i, okn)
         log.debug("Multiple results found for {}. They were:{}".format(
             name, ok_names_list))
-        await ctx.send("Multiple results were found for the name {}. Please register again with the full name.".format(name))
+        await ctx.send("Multiple results were found for the name {}. They were: {}. Please register again with the full name.".format(name, ok_names))
 
 
 # def is_mod():
@@ -233,7 +237,7 @@ async def on_member_join(member):
     if member.guild.id == guild_id:
         log.info("New member joined: {}".format(member))
         await member.guild.get_channel(welcome_id).send((f"Welcome, {member.mention}! Please register using `!reg <your name>` to access the full server.\n"
-                                                         "If you are a seior, please ask a Moderator to register you."))
+                                                         "If you are a senior, please ask a Moderator to register you."))
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -245,7 +249,7 @@ async def on_command_error(ctx, error):
 
 
 log.debug("Loaded all.")
-bot.run(token)
+bot.run(TOKEN)
 log.debug("Closing database.")
 db.close()
 log.warn("Bot shut down.")
